@@ -16,7 +16,7 @@ lines(seq(from=0, to=1, by=0.01), fittedValuesSeq)
 square_residuals = (traindata$Y - fittedValues)^2
 error = 1/length(fittedValues) * sum(square_residuals)
 #Linear regression with transformed X (order up to k0)
-k0 = 10
+k0 = 2
 X = matrix(rep(1,200))
 for (k in 1:k0) {
   X = cbind(X, traindata$X^k)
@@ -24,10 +24,11 @@ for (k in 1:k0) {
 Xseq = rep(1,101)
 fittedValues = X%*%solve(t(X)%*%X)%*%t(X)%*%traindata$Y
 for (k in 1:k0) {
-  Xseq = cbind(Xseq, seq(from=0, to=1, by=0.01))
+  Xseq = cbind(Xseq^k, seq(from=0, to=1, by=0.01))
 }
 fittedValuesSeq <- Xseq%*%solve(t(X)%*%X)%*%t(X)%*%traindata$Y
 plot(traindata)
+plot(seq(from=0, to=1, by=0.01), fittedValuesSeq)
 lines(seq(from=0, to=1, by=0.01), fittedValuesSeq)
 
 square_residuals = (traindata$Y - fittedValues)^2
