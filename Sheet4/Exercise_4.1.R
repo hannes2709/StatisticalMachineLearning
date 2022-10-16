@@ -69,7 +69,7 @@ loo_mse_final <- rep(0, length(grid))
 for (i in 1:length(grid)) {
   loo_mse_final[i] <- mean(loo_mse[i, ])
 }
-plot(log(grid), loo_mse_final)
+plot(grid, loo_mse_final)
 best_lambda_loo <- which.min(loo_mse_final)
 print(grid[best_lambda_loo])
 #To calculate the decision function, we would take the best lambda now and
