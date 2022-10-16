@@ -19,7 +19,7 @@ plot(lasso.mod, xvar = "lambda", main = "LASSO")
 
 #NOTE: In the following lines, we do ridge regression. To do LASSO, set alpha = 1 in the glmnet functions.
 # Exercise 4.1 (c) Simple Cross-validation
-set.seed(1)                # To control randomness
+set.seed(5)                # To control randomness
 valdn = sample(1:252,100)  # Generating validation set
 train = (-valdn)           
 
