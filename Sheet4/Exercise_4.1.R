@@ -9,7 +9,7 @@ x <- model.matrix(siri ~ ., bodyfat)[, -1] #the [, -1] is there to remove the
 #fist column, which is a column of ones for the intercept (what we don't need when
 #we use "glmnet" later)
 y = bodyfat$siri
-grid <- 10^seq(from = -2, to = 0, length = 100)
+grid <- 10^seq(from = -2, to = -2, length = 100)
 ridge_mod <- glmnet(x,y, alpha = 0, lambda = grid) #alpha = 0 for ridge,
 #alpha = 1 for lasso regression
 dim(coef(ridge_mod))#we can see that the dimension depends on the grid and #predictors

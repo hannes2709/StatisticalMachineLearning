@@ -8,7 +8,7 @@ data = bodyfat[,-c(1,2,4)]
 x = model.matrix(siri~., data)[, -1]
 y = data$siri
 
-grid = 10^seq(from = -3, to = 3, length = 100)
+grid = 10^seq(from = -3, to = -2, length = 100)
 
 #Exercise 4.1 (b) Doing LASSO and ridge regression
 ridge.mod = glmnet(x = x, y = y, alpha = 0, lambda = grid)
@@ -23,7 +23,7 @@ set.seed(5)                # To control randomness
 valdn = sample(1:252,100)  # Generating validation set
 train = (-valdn)           
 
-grid = 10^seq(from = -2, to = 0, length = 100)
+#grid = 10^seq(from = -2, to = 0, length = 100)
 
 ridge.train = glmnet(x = x[train,], y = y[train], alpha = 0, lambda = grid)
 ridge.pred = predict(object = ridge.train, newx = x[valdn,])
