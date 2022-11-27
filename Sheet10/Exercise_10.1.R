@@ -16,7 +16,7 @@ set.seed(1)
 tune.out <- tune ( svm , Y ~ . , data = dat ,
                      kernel = "radial" ,
                      ranges = list ( cost = c (0.01 ,0.1 ,1 ,10 ,100) ,
-                                     gamma = c (0.1 ,1 ,10)))
+                                     gamma = c (100)))
 best.svm <- tune.out $ best.model #best model chosen by 10 fold cross validation
 summary(tune.out)
 best.svm
