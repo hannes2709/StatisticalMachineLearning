@@ -126,7 +126,7 @@ points(X,col=Y+1)
 #         Exercise 2
 ###################################
 # read in Heart data set
-Heart <- read.csv("Heart.csv")
+Heart <- read.csv("/Users/hannesgubler/Documents/R_Repositories/StatisticalMachineLearning/Sheet10/Heart.csv")
 # ensure reproducibility
 set.seed(200)
 
@@ -134,6 +134,7 @@ Heart$AHD = factor(Heart$AHD)
 
 
 # transform salary variable to the logarithm of salary
+Hitters <- read.csv("/Users/hannesgubler/Documents/R_Repositories/StatisticalMachineLearning/Sheet10/Hitters.csv")
 Hitters$Salary <- log(Hitters$Salary)
 # sample 70% of the row indices for training the models
 trainHit <- sample(1:nrow(Hitters), 0.7*nrow(Hitters))
