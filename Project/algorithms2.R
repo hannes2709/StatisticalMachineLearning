@@ -1,16 +1,14 @@
 full_loss = function(X, Y, w) {
   loss = 0
   for (i in 1:length(Y)) {
-    loss = loss + log(1 + exp(- Y[i] * (w %*% X[i, ])))
-    #loss = loss - (Y[i] * w %*% X[i, ] + log(sigmoid(-w %*% X[i, ])))
+    loss = loss + log(1 + exp(- Y[i] * dot(w, X[i, ])))
   }
   loss = 1 / length(Y) * loss
   return(loss)
 }
 
 df_log_loss = function(x, y, w) {
-  out = -x * y / (as.numeric(exp((w %*% x)) * y) + 1)
-  #out = -as.numeric((y - sigmoid(-w %*% x))) * x
+  out = -x * y / (exp(dot(w, x) * y) + 1)
   return(out)
 }
 
